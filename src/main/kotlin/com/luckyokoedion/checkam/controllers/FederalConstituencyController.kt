@@ -1,0 +1,78 @@
+package com.luckyokoedion.checkam.controllers
+
+
+import com.luckyokoedion.checkam.dtos.CreateFederalConstituency
+import com.luckyokoedion.checkam.dtos.UpdateFederalConstituency
+import com.luckyokoedion.checkam.models.FederalConstituencyModel
+import com.luckyokoedion.checkam.repositories.FederalConstituencyRepository
+import kotlinx.coroutines.flow.toList
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.*
+
+@RestController
+@RequestMapping("/federal-constituencies")
+class FederalConstituencyController(val theRepo: FederalConstituencyRepository) {    @PostMapping
+    suspend fun create(@RequestBody theData: CreateFederalConstituency): ResponseEntity<FederalConstituencyModel> {
+        val theObj = FederalConstituencyModel(0,
+                theData.name)
+
+        return try {
+            val theResult = theRepo.save(theObj)
+            ResponseEntity(theResult, HttpStatus.OK)
+        } catch (e: Exception) {
+            ResponseEntity(HttpStatus.NO_CONTENT)
+        }
+
+    }
+
+    @GetMapping
+    suspend fun getAll(): ResponseEntity<List<FederalConstituencyModel>> {
+
+        return try {
+            val theResult = theRepo.findAll().toList()
+            ResponseEntity(theResult,HttpStatus.OK)
+        } catch (e: Exception) {
+            ResponseEntity(HttpStatus.NO_CONTENT)
+        }
+
+    }
+
+    @GetMapping
+    suspend fun getOneById(@RequestParam id: Long): ResponseEntity<FederalConstituencyModel> {
+        return try {
+            val theResult = theRepo.findById(id)
+            ResponseEntity(theResult,HttpStatus.OK)
+        } catch (e: Exception) {
+            ResponseEntity(HttpStatus.NO_CONTENT)
+        }
+    }
+
+    @PutMapping
+    suspend fun update(@RequestBody theData: UpdateFederalConstituency): ResponseEntity<FederalConstituencyModel> {
+        val theObj = theRepo.findById(theData.id)
+        if (theObj != null) {
+            theObj.name = theData.name
+
+            return try {
+                val theResult = theRepo.save(theObj)
+                ResponseEntity(theResult,HttpStatus.OK)
+            } catch (e: Exception) {
+                ResponseEntity(HttpStatus.NO_CONTENT)
+            }
+
+        }else {
+            return ResponseEntity(HttpStatus.NOT_FOUND)
+        }
+    }
+
+    @DeleteMapping
+    suspend fun delete(@RequestParam id: Long): ResponseEntity<Unit> {
+        return try {
+            val theResult = theRepo.deleteById(id)
+            ResponseEntity(theResult,HttpStatus.OK)
+        } catch (e: Exception) {
+            ResponseEntity(HttpStatus.NO_CONTENT)
+        }
+    }
+}
