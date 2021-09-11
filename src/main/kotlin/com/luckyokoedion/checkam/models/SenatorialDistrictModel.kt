@@ -1,12 +1,11 @@
 package com.luckyokoedion.checkam.models
 
-import javax.persistence.*
+import org.springframework.data.annotation.Id
+import org.springframework.data.relational.core.mapping.Table
 
-@Entity
-class SenatorialDistrictModel (
+@Table
+data class SenatorialDistrictModel (
         @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        val id: Int,
-        @Column(nullable = false)
-        val name: String
+        var id: Long,
+        var name: String
 )

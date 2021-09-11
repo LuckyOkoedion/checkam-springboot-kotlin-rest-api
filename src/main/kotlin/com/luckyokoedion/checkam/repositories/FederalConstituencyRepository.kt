@@ -1,7 +1,7 @@
 package com.luckyokoedion.checkam.repositories
 
 import com.luckyokoedion.checkam.models.FederalConstituencyModel
-import org.springframework.data.repository.CrudRepository
+import org.springframework.data.repository.kotlin.CoroutineCrudRepository
 
-interface FederalConstituencyRepository: CrudRepository<FederalConstituencyModel, Long> {
+interface FederalConstituencyRepository: CoroutineCrudRepository<FederalConstituencyModel, Long> {
 }

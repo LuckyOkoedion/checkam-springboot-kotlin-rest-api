@@ -1,7 +1,7 @@
 package com.luckyokoedion.checkam.repositories
 
 import com.luckyokoedion.checkam.models.LocalGovernmentModel
-import org.springframework.data.repository.CrudRepository
+import org.springframework.data.repository.kotlin.CoroutineCrudRepository
 
-interface LocalGovernmentRepository : CrudRepository<LocalGovernmentModel, Long> {
+interface LocalGovernmentRepository : CoroutineCrudRepository<LocalGovernmentModel, Long> {
 }

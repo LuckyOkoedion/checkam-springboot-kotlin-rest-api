@@ -1,8 +1,8 @@
 package com.luckyokoedion.checkam.repositories
 
 import com.luckyokoedion.checkam.models.CommunityModel
-import org.springframework.data.repository.CrudRepository
+import org.springframework.data.repository.kotlin.CoroutineCrudRepository
 
-interface CommunityRepository: CrudRepository<CommunityModel, Long> {
+interface CommunityRepository: CoroutineCrudRepository<CommunityModel, Long> {
 
 }

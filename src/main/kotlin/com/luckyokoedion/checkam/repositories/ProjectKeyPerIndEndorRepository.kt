@@ -1,7 +1,7 @@
 package com.luckyokoedion.checkam.repositories
 
 import com.luckyokoedion.checkam.models.ProjectKeyPerIndEndorModel
-import org.springframework.data.repository.CrudRepository
+import org.springframework.data.repository.kotlin.CoroutineCrudRepository
 
-interface ProjectKeyPerIndEndorRepository : CrudRepository<ProjectKeyPerIndEndorModel, Long> {
+interface ProjectKeyPerIndEndorRepository : CoroutineCrudRepository<ProjectKeyPerIndEndorModel, Long> {
 }

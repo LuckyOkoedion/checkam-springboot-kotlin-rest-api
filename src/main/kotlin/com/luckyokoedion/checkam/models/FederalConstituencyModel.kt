@@ -1,13 +1,13 @@
 package com.luckyokoedion.checkam.models
 
-import javax.persistence.*
+import org.springframework.data.annotation.Id
+import org.springframework.data.relational.core.mapping.Table
 
-@Entity
-class FederalConstituencyModel (
+
+@Table
+data class FederalConstituencyModel (
         @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        val id: Int,
-        @Column(nullable = false)
-        val name: String
+        var id: Long,
+        var name: String
 
 )

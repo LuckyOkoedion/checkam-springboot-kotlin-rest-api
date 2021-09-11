@@ -1,20 +1,16 @@
 package com.luckyokoedion.checkam.models
 
-import javax.persistence.*
+import org.springframework.data.annotation.Id
+import org.springframework.data.relational.core.mapping.Table
 
-@Entity
-class ProjectMonitorModel (
+@Table
+data class ProjectMonitorModel (
         @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        val id: Int,
-        @Column(nullable = false)
-        val first_name: String,
-        @Column(nullable = false)
-        val last_name: String,
-        @Column(nullable = false)
-        val email: String,
-        @Column(nullable = false)
-        val phone_no: String
+        var id: Long,
+        var first_name: String,
+        var last_name: String,
+        var email: String,
+        var phone_no: String
 
 
         )

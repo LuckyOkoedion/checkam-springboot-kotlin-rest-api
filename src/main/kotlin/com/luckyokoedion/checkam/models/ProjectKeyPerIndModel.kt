@@ -1,15 +1,13 @@
 package com.luckyokoedion.checkam.models
 
-import javax.persistence.*
+import org.springframework.data.annotation.Id
+import org.springframework.data.relational.core.mapping.Table
 
-@Entity
-class ProjectKeyPerIndModel (
+@Table
+data class ProjectKeyPerIndModel (
         @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        val id: Int,
-        @Column(nullable = false)
-        val description: String,
-        @Column(nullable = false)
-        val project: Int
+        var id: Long,
+        var description: String,
+        var project: Int
 
         )

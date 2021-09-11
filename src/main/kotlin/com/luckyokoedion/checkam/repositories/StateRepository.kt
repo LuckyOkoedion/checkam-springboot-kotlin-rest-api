@@ -1,7 +1,7 @@
 package com.luckyokoedion.checkam.repositories
 
 import com.luckyokoedion.checkam.models.StateModel
-import org.springframework.data.repository.CrudRepository
+import org.springframework.data.repository.kotlin.CoroutineCrudRepository
 
-interface StateRepository: CrudRepository<StateModel, Long> {
+interface StateRepository: CoroutineCrudRepository<StateModel, Long> {
 }

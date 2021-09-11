@@ -1,7 +1,7 @@
 package com.luckyokoedion.checkam.repositories
 
 import com.luckyokoedion.checkam.models.ProjectReviewModel
-import org.springframework.data.repository.CrudRepository
+import org.springframework.data.repository.kotlin.CoroutineCrudRepository
 
-interface ProjectReviewRepository : CrudRepository<ProjectReviewModel, Long> {
+interface ProjectReviewRepository : CoroutineCrudRepository<ProjectReviewModel, Long> {
 }

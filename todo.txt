@@ -1,2 +1,1 @@
-Use spring data R2DBC to rewrite repositories to take advantage of kotlin coroutines
-for asynchronous data fetches and operations.
+continue at projectKeyPerformanceIndicatorEndorsement controller 
