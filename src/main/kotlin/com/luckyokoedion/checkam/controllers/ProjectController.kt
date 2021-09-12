@@ -39,7 +39,7 @@ class ProjectController(val theRepo: ProjectRepository) {
 
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     suspend fun getOneById(@RequestParam id: Long): ResponseEntity<ProjectModel> {
         return try {
             val theResult = theRepo.findById(id)
@@ -73,7 +73,7 @@ class ProjectController(val theRepo: ProjectRepository) {
         }
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     suspend fun delete(@RequestParam id: Long): ResponseEntity<Unit> {
         return try {
             val theResult = theRepo.deleteById(id)

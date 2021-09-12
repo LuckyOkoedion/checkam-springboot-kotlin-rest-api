@@ -39,7 +39,7 @@ class SenatorialDistrictController(val theRepo: SenatorialDistrictRepository) {
 
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     suspend fun getOneById(@RequestParam id: Long): ResponseEntity<SenatorialDistrictModel> {
         return try {
             val theResult = theRepo.findById(id)
@@ -67,7 +67,7 @@ class SenatorialDistrictController(val theRepo: SenatorialDistrictRepository) {
         }
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     suspend fun delete(@RequestParam id: Long): ResponseEntity<Unit> {
         return try {
             val theResult = theRepo.deleteById(id)
