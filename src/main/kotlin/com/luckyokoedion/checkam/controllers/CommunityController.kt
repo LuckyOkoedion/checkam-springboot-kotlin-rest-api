@@ -42,7 +42,7 @@ class CommunityController(val theRepo: CommunityRepository) {
 
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     suspend fun getOneById(@RequestParam id: Long): ResponseEntity<CommunityModel> {
         return try {
             val theResult = theRepo.findById(id)
@@ -77,7 +77,7 @@ class CommunityController(val theRepo: CommunityRepository) {
         }
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     suspend fun delete(@RequestParam id: Long): ResponseEntity<Unit> {
         return try {
             val theResult = theRepo.deleteById(id)

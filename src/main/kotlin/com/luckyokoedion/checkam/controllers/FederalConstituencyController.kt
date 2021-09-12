@@ -38,7 +38,7 @@ class FederalConstituencyController(val theRepo: FederalConstituencyRepository) 
 
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     suspend fun getOneById(@RequestParam id: Long): ResponseEntity<FederalConstituencyModel> {
         return try {
             val theResult = theRepo.findById(id)
@@ -66,7 +66,7 @@ class FederalConstituencyController(val theRepo: FederalConstituencyRepository) 
         }
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     suspend fun delete(@RequestParam id: Long): ResponseEntity<Unit> {
         return try {
             val theResult = theRepo.deleteById(id)
