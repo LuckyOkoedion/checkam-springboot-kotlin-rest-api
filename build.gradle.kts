@@ -36,6 +36,7 @@ dependencies {
 	implementation("org.springdoc:springdoc-openapi-webflux-core:1.5.10")
 	implementation("io.swagger.core.v3:swagger-annotations:2.1.10")
 	implementation("io.swagger.core.v3:swagger-models:2.1.10")
+	runtimeOnly("io.r2dbc:r2dbc-postgresql")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
 }
